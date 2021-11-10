@@ -113,8 +113,8 @@ function setup() {
     //createCanvas(windowWidth, windowHeight, WEBGL);
     createCanvas(window.innerWidth, window.innerHeight);
     pVideoJava = createCapture(VIDEO);
-    //wVideo=screen.availWidth*65/100;
-    //hVideo=wVideo*screen.availHeight/screen.availWidth;
+    wVideo=screen.availWidth*65/100;
+    hVideo=wVideo*screen.availHeight/screen.availWidth;
     pVideoJava.size(wVideo, hVideo);
     pVideoJava.hide();
   } else
