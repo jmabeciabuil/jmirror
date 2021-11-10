@@ -102,7 +102,7 @@ function preload() {
 function setup() {
   createMetaTag();
   createCanvas(window.innerWidth, window.innerHeight);
-  if (pixelDensity()==1) {
+  if (pixelDensity()==1 && !valLandscape) {
     //let fs = fullscreen();
     //fullscreen(!fs);
     //createCanvas(screen.availWidth, screen.availHeight);
@@ -115,14 +115,17 @@ function setup() {
 
     pVideoJava.size(wVideo, hVideo);
     pVideoJava.hide();
+    initImages();
   } else
   {
-    if (window.DeviceOrientationEvent) {
-      window.addEventListener('deviceorientation', onOrientationChange);
-    }
+    //if (window.DeviceOrientationEvent) {
+    //  window.addEventListener('deviceorientation', onOrientationChange);
+    //}
+    
     setupCamera();
+    initImagesCamera();
   }
-  initImages();
+  
 
   smooth();
 
@@ -207,29 +210,32 @@ function draw()
   //lights();
   background(255);
 
-  if (window.innerWidth!=windowInnerWidth || window.innerHeight!=windowInnerHeight) 
+  if (!valLandscape)
   {
-    windowInnerWidth = window.innerWidth; 
-    windowInnerHeight = window.innerHeight; 
-    wsIni=(window.innerWidth-pVideoJava.width)/2;
-    hsIni=(window.innerHeight-pVideoJava.height)/2;
-    if (valLandscape)
+    if (window.innerWidth!=windowInnerWidth || window.innerHeight!=windowInnerHeight) 
     {
-      setupCamera(); 
-      initImages();
+      windowInnerWidth = window.innerWidth; 
+      windowInnerHeight = window.innerHeight; 
+      wsIni=(window.innerWidth-pVideoJava.width)/2;
+      hsIni=(window.innerHeight-pVideoJava.height)/2;
     }
-  }
+  } 
+  /*else
+  {
+    setupCamera(); 
+    initImagesCamera();
+  }*/
 
   videoImage = CapturaVideo(videoImage);
   if (lVideo) {
     image(videoImage, (wsIni), (hsIni), (wVideo), (hVideo));
-    angleMode(DEGREES);
+    //angleMode(DEGREES);
     //rectMode(CENTER);
-    push();
-    translate(width/2-50, height/2-100);
-    rotate(beta);
-    rect(0, 0, 100, 200);
-    pop();
+    //push();
+    //translate(width/2-50, height/2-100);
+    //rotate(beta);
+    //rect(0, 0, 100, 200);
+    //pop();
   }
   switch(procNum) {
   case 0:
@@ -344,6 +350,38 @@ function initImages()
 
   wsIni=(width-pVideoJava.width)/2;
   hsIni=(height-pVideoJava.height)/2;
+
+  wVideo=pVideoJava.width;
+  hVideo=pVideoJava.height;
+
+  videoFrame = createImage(pVideoJava.width, pVideoJava.height);
+  videoImage = createImage(pVideoJava.width, pVideoJava.height);
+  prevFrame = createImage(pVideoJava.width, pVideoJava.height);
+  display = createImage(pVideoJava.width, pVideoJava.height);
+
+  //bubbleImageBola = createImg("./down.png", "");
+  //bubbleImageBola.hide();
+
+  nElip=int((wVideo/10));
+  //nElip=int((hVideo/10));
+  longlarg=nElip;
+
+  lInit=true;
+
+  for (let i = 0; i < nFrames; i++) {
+    buffer[i] = null;
+  }
+
+  initRectDown();
+}
+/////////////////////////////////////////
+function initImagesCamera()
+{
+  //wsIni=(window.innerWidth-pVideoJava.width)/2;
+  //hsIni=(window.innerHeight-pVideoJava.height)/2;
+
+  wsIni=0;
+  hsIni=0;
 
   wVideo=pVideoJava.width;
   hVideo=pVideoJava.height;
