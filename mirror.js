@@ -386,39 +386,6 @@ function initImages()
   initRectDown();
 }
 /////////////////////////////////////////
-
-function initImagesWebgl()
-{
-  //wsIni=(window.innerWidth-pVideoJava.width)/2;
-  //hsIni=(window.innerHeight-pVideoJava.height)/2;
-
-  wsIni=(width-pVideoJava.width)/2-width/2;
-  hsIni=(height-pVideoJava.height)/2-height/2;
-
-  wVideo=pVideoJava.width;
-  hVideo=pVideoJava.height;
-
-  videoFrame = createImage(pVideoJava.width, pVideoJava.height);
-  pVideo = createImage(pVideoJava.width, pVideoJava.height);
-  prevFrame = createImage(pVideoJava.width, pVideoJava.height);
-  display = createImage(pVideoJava.width, pVideoJava.height);
-
-  //bubbleImageBola = createImg("./down.png", "");
-  //bubbleImageBola.hide();
-
-  nElip=int((wVideo/10));
-  //nElip=int((hVideo/10));
-  longlarg=nElip;
-
-  lInit=true;
-
-  for (let i = 0; i < nFrames; i++) {
-    buffer[i] = null;
-  }
-
-  initRectDownWebgl();
-}
-//////////////////////////////////////
 function initRectUp()
 {
   let n = 1;
@@ -526,61 +493,6 @@ function initRectDown()
   xgridData[1]=window.innerWidth/2+(3*nElip);
   xgridData[0]=window.innerWidth/2+(4*nElip);
 }
-
-////////////////////////////////
-function initRectDownWebgl()
-{
-  let n = 1;
-  let nUpDown=-hVideo+nElip*n+nElip/2;
-
-  for (let x=0; x<10; x++) {
-    for (let y=0; y<1; y++) {
-      //xgridData[x][y]=1;
-      //ygridData[x][y]=1;
-      xgridData[x]=1;
-      ygridData[x]=1;
-    }
-  }
-
-  ygridData[13]=hsIni+nElip*3-nElip/2;
-  ygridData[12]=hsIni+nElip*5-nElip;
-
-  ygridData[11]=hsIni+nElip*n*3-nElip/2;
-  ygridData[10]=hsIni+nElip*n*5-nElip;
-
-  ygridData[9]=nUpDown+hsIni+hVideo+nElip*3+nElip/2;
-  ygridData[8]=nUpDown+hsIni+hVideo+nElip*4;
-  ygridData[7]=nUpDown+hsIni+hVideo+nElip*4;
-  ygridData[6]=nUpDown+hsIni+hVideo+nElip*3+nElip/2;
-  ygridData[5]=nUpDown+hsIni+hVideo+nElip*1+nElip/2;
-
-  ygridData[4]=nUpDown+hsIni+hVideo+nElip*3+nElip/2;
-  ygridData[3]=nUpDown+hsIni+hVideo+nElip*4;
-  ygridData[2]=nUpDown+hsIni+hVideo+nElip*4;
-  ygridData[1]=nUpDown+hsIni+hVideo+nElip*3+nElip/2;
-  ygridData[0]=nUpDown+hsIni+hVideo+nElip*1+nElip/2;
-
-  ////////////////////////////////////////////////////////////
-
-  xgridData[12]=-(3*nElip);
-  xgridData[13]=-(3*nElip);
-
-  xgridData[10]=+(2*nElip);
-  xgridData[11]=+(2*nElip);
-
-  xgridData[5]=-(5*nElip);
-  xgridData[6]=-(4*nElip);
-  xgridData[7]=-(3*nElip);
-  xgridData[8]=-(2*nElip);
-  xgridData[9]=-(1*nElip);
-
-  xgridData[4]=+(0*nElip);
-  xgridData[3]=+(1*nElip);
-  xgridData[2]=+(2*nElip);
-  xgridData[1]=+(3*nElip);
-  xgridData[0]=+(4*nElip);
-}
-
 ////////////////////////////////
 function copyRight()
 {
@@ -957,7 +869,13 @@ function setupCamera() {
     false
   }
   );
-  pVideoJava.size(width, height);
+  if (pixelDensity()==1 && !valLandscape) 
+  {
+    pVideoJava.size(width, height);
+  } else
+  {
+    pVideoJava.size(height, width);
+  }
   pVideoJava.hide();
 }
 
