@@ -222,12 +222,11 @@ function draw()
       wsIni=(window.innerWidth-pVideoJava.width)/2;
       hsIni=(window.innerHeight-pVideoJava.height)/2;
     }
-  } 
-  /*else
-   {
-   setupCamera(); 
-   initImagesCamera();
-   }*/
+  } else
+  {     
+    //setupCamera(); 
+    //initImages();
+  }
 
   videoImage = CapturaVideo(videoImage);
   if (lVideo) {
@@ -852,7 +851,7 @@ function incrementoMasMenos(textoString1, textoString2)
 function touchStarted() {
   facingUser = !facingUser;
   setupCamera();
-  initImagesCamera();
+  initImages();
 }
 
 function setupCamera() {
