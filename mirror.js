@@ -215,8 +215,7 @@ function draw()
     }
   } else
   {     
-    //setupCamera(); 
-    //initImages();
+    setupCamera(); 
   }
 
   videoImage = CapturaVideo(videoImage);
