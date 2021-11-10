@@ -121,16 +121,14 @@ function setup() {
 
     pVideoJava.size(wVideo, hVideo);
     pVideoJava.hide();
-    initImages();
   } else
   {
     //if (window.DeviceOrientationEvent) {
     //  window.addEventListener('deviceorientation', onOrientationChange);
     //}   
     setupCamera();
-    initImagesCamera();
   }
-  
+  initImages();  
 
   smooth();
 
@@ -226,10 +224,10 @@ function draw()
     }
   } 
   /*else
-  {
-    setupCamera(); 
-    initImagesCamera();
-  }*/
+   {
+   setupCamera(); 
+   initImagesCamera();
+   }*/
 
   videoImage = CapturaVideo(videoImage);
   if (lVideo) {
@@ -353,19 +351,26 @@ function initImages()
   //wsIni=(window.innerWidth-pVideoJava.width)/2;
   //hsIni=(window.innerHeight-pVideoJava.height)/2;
 
-  wsIni=(width-pVideoJava.width)/2;
-  hsIni=(height-pVideoJava.height)/2;
+  if (pixelDensity()==1 && !valLandscape) 
+  {
+    wsIni=(width-pVideoJava.width)/2;
+    hsIni=(height-pVideoJava.height)/2;
 
-  wVideo=pVideoJava.width;
-  hVideo=pVideoJava.height;
+    wVideo=pVideoJava.width;
+    hVideo=pVideoJava.height;
+  } else
+  {
+    wsIni=0;
+    hsIni=0;
+
+    hVideo=pVideoJava.width;
+    wVideo=pVideoJava.height;
+  }
 
   videoFrame = createImage(pVideoJava.width, pVideoJava.height);
   videoImage = createImage(pVideoJava.width, pVideoJava.height);
   prevFrame = createImage(pVideoJava.width, pVideoJava.height);
   display = createImage(pVideoJava.width, pVideoJava.height);
-
-  //bubbleImageBola = createImg("./down.png", "");
-  //bubbleImageBola.hide();
 
   nElip=int((wVideo/10));
   //nElip=int((hVideo/10));
@@ -381,41 +386,6 @@ function initImages()
   initRectDown();
 }
 /////////////////////////////////////////
-
-function initImagesCamera()
-{
-  //wsIni=(window.innerWidth-pVideoJava.width)/2;
-  //hsIni=(window.innerHeight-pVideoJava.height)/2;
-
-  wsIni=0;
-  hsIni=0;
-
-  wVideo=pVideoJava.width;
-  hVideo=pVideoJava.height;
-
-  videoFrame = createImage(pVideoJava.width, pVideoJava.height);
-  videoImage = createImage(pVideoJava.width, pVideoJava.height);
-  prevFrame = createImage(pVideoJava.width, pVideoJava.height);
-  display = createImage(pVideoJava.width, pVideoJava.height);
-
-  //bubbleImageBola = createImg("./down.png", "");
-  //bubbleImageBola.hide();
-
-  nElip=int((wVideo/10));
-  //nElip=int((hVideo/10));
-  longlarg=nElip;
-
-  lInit=true;
-
-  for (let i = 0; i < nFrames; i++) 
-  {
-    buffer[i] = null;
-  }
-
-  initRectDown();
-} 
-
-//////////////////////////////////////
 
 function initImagesWebgl()
 {
