@@ -108,7 +108,7 @@ function preload() {
 function setup() {
   createMetaTag();
   createCanvas(window.innerWidth, window.innerHeight);
-  if (pixelDensity()==1 && !valLandscape) {
+  if (pixelDensity()==1 || !valLandscape) {
     //let fs = fullscreen();
     //fullscreen(!fs);
     //createCanvas(screen.availWidth, screen.availHeight);
@@ -116,7 +116,7 @@ function setup() {
     createCanvas(window.innerWidth, window.innerHeight);
     pVideoJava = createCapture(VIDEO);
 
-    wVideo=screen.availWidth*60/100;
+    wVideo=screen.availWidth*50/100;
     hVideo=wVideo*screen.availHeight/screen.availWidth;
 
     pVideoJava.size(wVideo, hVideo);
@@ -203,17 +203,6 @@ function draw()
 {
   //lights();
   background(255);
-
-  if (!valLandscape)
-  {
-    if (window.innerWidth!=windowInnerWidth || window.innerHeight!=windowInnerHeight) 
-    {
-      windowInnerWidth = window.innerWidth; 
-      windowInnerHeight = window.innerHeight; 
-      wsIni=(window.innerWidth-pVideoJava.width)/2;
-      hsIni=(window.innerHeight-pVideoJava.height)/2;
-    }
-  }
 
   videoImage = CapturaVideo(videoImage);
   if (lVideo) {
@@ -346,13 +335,13 @@ function initImages()
     hVideo=pVideoJava.height;
   } 
   /*else
-  {
-    wsIni=0;
-    hsIni=0;
-
-    hVideo=pVideoJava.width;
-    wVideo=pVideoJava.height;
-  }*/
+   {
+   wsIni=0;
+   hsIni=0;
+   
+   hVideo=pVideoJava.width;
+   wVideo=pVideoJava.height;
+   }*/
 
   videoFrame = createImage(pVideoJava.width, pVideoJava.height);
   videoImage = createImage(pVideoJava.width, pVideoJava.height);
@@ -892,3 +881,24 @@ function deviceTurned()
     valLandscape = false;
   }
 }
+/////////////////////////////////////////////////////
+function windowResized() {
+  resizeCanvas(windowWidth, windowHeight);
+
+  if (!valLandscape)
+  {
+    //if (window.innerWidth!=windowInnerWidth || window.innerHeight!=windowInnerHeight) 
+    {
+      //windowInnerWidth = window.innerWidth; 
+      //windowInnerHeight = window.innerHeight; 
+      wsIni=(window.innerWidth-pVideoJava.width)/2;
+      hsIni=(window.innerHeight-pVideoJava.height)/2;
+    }
+  } else
+  {
+    setupCamera();
+    initImages();
+  }
+  
+}
+/////////////////////////////////////////////////////
