@@ -128,8 +128,7 @@ function setup() {
     //  window.addEventListener('deviceorientation', onOrientationChange);
     //}   
     setupCamera();
-    //initImagesCamera();
-    initImages();
+    initImagesCamera();
   }
   
 
