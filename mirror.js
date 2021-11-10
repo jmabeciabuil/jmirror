@@ -381,7 +381,8 @@ function initImages()
   initRectDown();
 }
 /////////////////////////////////////////
-/*function initImagesCamera()
+/*
+function initImagesCamera()
 {
   //wsIni=(window.innerWidth-pVideoJava.width)/2;
   //hsIni=(window.innerHeight-pVideoJava.height)/2;
@@ -411,7 +412,8 @@ function initImages()
   }
 
   initRectDown();
-}*/
+} 
+*/
 //////////////////////////////////////
 
 function initImagesWebgl()
