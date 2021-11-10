@@ -184,28 +184,19 @@ function setup() {
   noStroke();
   fill(255, 204);
 
-  //initImagesWebgl();
-  //initImages();
-
   if (lStored) 
   {
     loadParamJson();
   }
 
-  //frmRate=bubbleLoc.length;
-
   FingersRightOn(true, true, true, true, true, true, true, true, true);
   FingersLeftOn(true, true, true, true, true, true, true, true, true);
-
-  //initRectDownWebgl();
-  //initRectDown();
 
   initBar();
   noStroke();
   textAlign(CENTER);
   textSize(12);
   fill(0, 102, 153);
-  //pVideoJava.hide();
 }
 //////////////////////////////////////////////////////
 function draw()
@@ -350,21 +341,22 @@ function initImages()
   //wsIni=(window.innerWidth-pVideoJava.width)/2;
   //hsIni=(window.innerHeight-pVideoJava.height)/2;
 
-  if (pixelDensity()==1 && !valLandscape) 
+  //if (pixelDensity()==1 && !valLandscape) 
   {
     wsIni=(width-pVideoJava.width)/2;
     hsIni=(height-pVideoJava.height)/2;
 
     wVideo=pVideoJava.width;
     hVideo=pVideoJava.height;
-  } else
+  } 
+  /*else
   {
     wsIni=0;
     hsIni=0;
 
     hVideo=pVideoJava.width;
     wVideo=pVideoJava.height;
-  }
+  }*/
 
   videoFrame = createImage(pVideoJava.width, pVideoJava.height);
   videoImage = createImage(pVideoJava.width, pVideoJava.height);
