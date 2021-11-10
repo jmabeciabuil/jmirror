@@ -123,8 +123,9 @@ function setup() {
     pVideoJava.hide();
   } else
   {
-    if (window.DeviceOrientationEvent) {
-      window.addEventListener('deviceorientation', onOrientationChange);
+    //if (window.DeviceOrientationEvent) 
+    {
+      // window.addEventListener('deviceorientation', onOrientationChange);
     }   
     setupCamera();
   }
@@ -884,21 +885,14 @@ function deviceTurned()
 /////////////////////////////////////////////////////
 function windowResized() {
   resizeCanvas(windowWidth, windowHeight);
-
   if (!valLandscape)
   {
-    //if (window.innerWidth!=windowInnerWidth || window.innerHeight!=windowInnerHeight) 
-    {
-      //windowInnerWidth = window.innerWidth; 
-      //windowInnerHeight = window.innerHeight; 
-      wsIni=(window.innerWidth-pVideoJava.width)/2;
-      hsIni=(window.innerHeight-pVideoJava.height)/2;
-    }
+    wsIni=(window.innerWidth-pVideoJava.width)/2;
+    hsIni=(window.innerHeight-pVideoJava.height)/2;
   } else
   {
     setupCamera();
     initImages();
   }
-  
 }
 /////////////////////////////////////////////////////
