@@ -100,7 +100,6 @@ function preload() {
   //valuesTxt = loadJSON("/procESP.json");
   //txtGui = loadJSON("Z:/webMirror/iuESP.json");
   lStored = getItem('lStored');
-  //lStored = localStorage.getItem('lStored');
   bubbleImageBola = createImg("./down.png", "");
   bubbleImageBola.hide();
 }
@@ -116,7 +115,7 @@ function setup() {
     createCanvas(window.innerWidth, window.innerHeight);
     pVideoJava = createCapture(VIDEO);
 
-    wVideo=screen.availWidth*50/100;
+    wVideo=screen.availWidth*65/100;
     hVideo=wVideo*screen.availHeight/screen.availWidth;
 
     pVideoJava.size(wVideo, hVideo);
@@ -885,7 +884,10 @@ function deviceTurned()
 /////////////////////////////////////////////////////
 function windowResized() {
   resizeCanvas(windowWidth, windowHeight);
-  if (!valLandscape)
+  //wsIni=(window.innerWidth-pVideoJava.width)/2;
+    //hsIni=(window.innerHeight-pVideoJava.height)/2;
+    initImages();
+  /*if (!valLandscape)
   {
     wsIni=(window.innerWidth-pVideoJava.width)/2;
     hsIni=(window.innerHeight-pVideoJava.height)/2;
@@ -893,6 +895,6 @@ function windowResized() {
   {
     setupCamera();
     initImages();
-  }
+  }*/
 }
 /////////////////////////////////////////////////////
