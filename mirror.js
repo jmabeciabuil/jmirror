@@ -123,9 +123,9 @@ function setup() {
     pVideoJava.hide();
   } else
   {
-    //if (window.DeviceOrientationEvent) {
-    //  window.addEventListener('deviceorientation', onOrientationChange);
-    //}   
+    if (window.DeviceOrientationEvent) {
+      window.addEventListener('deviceorientation', onOrientationChange);
+    }   
     setupCamera();
   }
   initImages();  
@@ -213,9 +213,6 @@ function draw()
       wsIni=(window.innerWidth-pVideoJava.width)/2;
       hsIni=(window.innerHeight-pVideoJava.height)/2;
     }
-  } else
-  {     
-    setupCamera(); 
   }
 
   videoImage = CapturaVideo(videoImage);
