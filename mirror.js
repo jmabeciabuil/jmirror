@@ -970,6 +970,7 @@ function incrementoMasMenos(textoString1, textoString2)
 function touchStarted() {
   facingUser = !facingUser;
   setupCamera();
+  initImagesCamera();
 }
 
 function setupCamera() {
