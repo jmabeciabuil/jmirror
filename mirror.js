@@ -1,3 +1,4 @@
+
 let valLandscape = false;
 let alpha = 0; // Orientation around Z axis
 let beta = 0; // Orientation around X axis
@@ -212,8 +213,11 @@ function draw()
     windowInnerHeight = window.innerHeight; 
     wsIni=(window.innerWidth-pVideoJava.width)/2;
     hsIni=(window.innerHeight-pVideoJava.height)/2;
-
-    //setupCamera();
+    if (valLandscape)
+    {
+      setupCamera(); 
+      initImages();
+    }
   }
 
   videoImage = CapturaVideo(videoImage);
@@ -931,8 +935,7 @@ function setupCamera() {
     facingMode: 
       facingUser ? 'user' : 'environment'
     } 
-    , 
-    audio: 
+  , audio: 
     false
   }
   );
