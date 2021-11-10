@@ -964,11 +964,11 @@ function onOrientationChange(e) {
 ///////////////////////////////////////////////////
 function deviceTurned()
 {
-  if (turnAxis === 'X')
+  if (turnAxis == 'X')
   {
-    valLandscape == true;
+    valLandscape = true;
   } else 
   {
-    valLandscape == false;
+    valLandscape = false;
   }
 }
