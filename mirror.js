@@ -869,13 +869,7 @@ function setupCamera() {
     false
   }
   );
-  if (pixelDensity()==1 && !valLandscape) 
-  {
-    pVideoJava.size(width, height);
-  } else
-  {
-    pVideoJava.size(height, width);
-  }
+  pVideoJava.size(width, height);
   pVideoJava.hide();
 }
 
