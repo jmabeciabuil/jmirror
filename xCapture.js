@@ -29,14 +29,6 @@ let lColor = true;
 let lVideo = true;
 let lOnCam = true;
 
-let nFrames = 6;
-let iWrite = 0;
-let iRead = 1;
-
-let buffer = [];
-let xgridData = [];
-let ygridData = [];
-
 ///////////////////////////////////////
 function CapturaVideo(pVideo)
 {
