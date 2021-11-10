@@ -128,7 +128,8 @@ function setup() {
     //  window.addEventListener('deviceorientation', onOrientationChange);
     //}   
     setupCamera();
-    initImagesCamera();
+    //initImagesCamera();
+    initImages();
   }
   
 
@@ -380,7 +381,7 @@ function initImages()
   initRectDown();
 }
 /////////////////////////////////////////
-function initImagesCamera()
+/*function initImagesCamera()
 {
   //wsIni=(window.innerWidth-pVideoJava.width)/2;
   //hsIni=(window.innerHeight-pVideoJava.height)/2;
@@ -410,7 +411,7 @@ function initImagesCamera()
   }
 
   initRectDown();
-}
+}*/
 //////////////////////////////////////
 
 function initImagesWebgl()
