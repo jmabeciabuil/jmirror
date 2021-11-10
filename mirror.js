@@ -373,7 +373,7 @@ function initImages()
 
   lInit=true;
 
-  for (let i = 0; i < nFrames; i++) {
+  for (let i = 0; i < nFrames ; i++) {
     buffer[i] = null;
   }
 
@@ -405,7 +405,7 @@ function initImagesCamera()
 
   lInit=true;
 
-  for (let i = 0; i < nFrames; i++) {
+  for (let i = 0; i < nFrames ; i++) {
     buffer[i] = null;
   }
 
