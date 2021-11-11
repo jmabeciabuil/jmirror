@@ -1,3 +1,4 @@
+let nVersion = 1.1;
 let inputKey = 0;
 let x = 100;
 let y = 100;
@@ -449,7 +450,7 @@ function copyRight()
   stroke(0);
   text("(R) Mirrors - (C) "+CopyRight, window.innerWidth-50, window.innerHeight-40);
   textAlign(LEFT);
-  text("FPS: " + frmRate +" - (P) "+procName, 50, window.innerHeight-40);
+  text("V - "+nVersion+" FPS: " + frmRate +" - (P) "+procName, 50, window.innerHeight-40);
   textAlign(CENTER);
   text(camStr, window.innerWidth/2, hsIni+hVideo+25);
   noFill();
@@ -906,7 +907,7 @@ function drawTeclado(keyTecla)
   {
     facingUser = !facingUser;
     setupCamera();
-    initImages();
+    //initImages();
   }
 }
 ////////////////////////////////////
