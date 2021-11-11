@@ -798,8 +798,8 @@ function touchStarted() {
   facingUser = !facingUser;
   //setupCamera();
   initImages();
-  inputKey = prompt("Enter a key: ");
-  drawTeclado(inputKey);
+  //inputKey = prompt("Enter a key: ");
+  //drawTeclado(inputKey);
 }
 
 function setupCamera() {
