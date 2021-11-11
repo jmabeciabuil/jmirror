@@ -108,6 +108,7 @@ function setup() {
   createMetaTag();
   createCanvas(window.innerWidth, window.innerHeight);
   //if (pixelDensity()==1 || 
+  
   if (valLandscape)
   {
     //createCanvas(screen.availWidth, screen.availHeight);
