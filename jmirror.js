@@ -450,7 +450,7 @@ function copyRight()
   stroke(0);
   text("(R) Mirrors - (C) "+CopyRight, window.innerWidth-50, window.innerHeight-40);
   textAlign(LEFT);
-  text("V - "+nVersion+" FPS: " + frmRate +" - (P) "+procName, 50, window.innerHeight-40);
+  text("V - "+nVersion+" / FPS: " + frmRate +" - (P) "+procName, 50, window.innerHeight-40);
   textAlign(CENTER);
   text(camStr, window.innerWidth/2, hsIni+hVideo+25);
   noFill();
