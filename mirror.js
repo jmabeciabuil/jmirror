@@ -113,7 +113,6 @@ function setup() {
   {
     //createCanvas(screen.availWidth, screen.availHeight);
     //createCanvas(windowWidth, windowHeight, WEBGL);
-    createCanvas(window.innerWidth, window.innerHeight);
     pVideoJava = createCapture(VIDEO);
     wVideo=screen.availWidth*65/100;
     hVideo=wVideo*screen.availHeight/screen.availWidth;
@@ -125,6 +124,8 @@ function setup() {
     {
       window.addEventListener('deviceorientation', onOrientationChange);
     }   
+    wVideo=width;
+    hVideo=height;
     setupCamera();
   }
   initImages();  
