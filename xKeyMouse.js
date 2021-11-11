@@ -114,12 +114,16 @@ function keyPressed()
     masMenosTolerancia=-1;
   } else  if (keyCode == ENTER || keyCode == RETURN)
   {
-  } else if (keyCode == BACKSPACE)
+    inputKey = prompt("What's your touch key?");
+    barManual(int(inputKey));
+  } else if (keyIsDown(BACKSPACE))
   {
-    nProc
+    
   }
-  else if ( keyCode == DELETE) {
+  else if ( keyCode == DELETE) 
+  {
     //barManual(99);
+    
   }
 }
 /////////////////////////////////////////////////////////////
