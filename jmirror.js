@@ -795,9 +795,6 @@ function incrementoMasMenos(textoString1, textoString2)
 }
 //////////////////////////////
 function touchStarted() {
-  facingUser = !facingUser;
-  if (valLandscape) {setupCamera();}
-  initImages();
   inputKey = prompt("Enter a key: ");
   drawTeclado(inputKey);
 }
@@ -905,6 +902,11 @@ function drawTeclado(keyTecla)
     if (procNum<0) {
       procNum=0;
     }
+  } else if (key == 'F' || key == 'B' )
+  {
+    facingUser = !facingUser;
+    setupCamera();
+    initImages();
   }
 }
 ////////////////////////////////////

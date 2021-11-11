@@ -116,11 +116,11 @@ function keyPressed()
   {
     inputKey = prompt("Enter a key: ");
     drawTeclado(inputKey);
-  } else if (keyIsDown(BACKSPACE))
+  } else if (keyCode == BACKSPACE )
   {
   } else if ( keyCode == DELETE) 
   {
-    //barManual(99);
+
   }
 }
 /////////////////////////////////////////////////////////////
