@@ -1,4 +1,4 @@
-let nVersion = 1.2;
+let nVersion = 1.3;
 //////////////////////////////////////////////
 let inputKey = 0;
 let x = 100;
