@@ -114,16 +114,13 @@ function keyPressed()
     masMenosTolerancia=-1;
   } else  if (keyCode == ENTER || keyCode == RETURN)
   {
-    inputKey = prompt("What's your touch key?");
-    barManual(int(inputKey));
+    inputKey = prompt("Enter a key: ");
+    drawTeclado(inputKey);
   } else if (keyIsDown(BACKSPACE))
   {
-    
-  }
-  else if ( keyCode == DELETE) 
+  } else if ( keyCode == DELETE) 
   {
     //barManual(99);
-    
   }
 }
 /////////////////////////////////////////////////////////////
@@ -333,22 +330,21 @@ function DisplayColorRect()
   let sh2 = "Hand";
   let sw2 = "Wrist";
 
-  displayColorMouses(nElip, ColorPulgarI, sf1, xgridData[0] , ygridData[0] );
-  displayColorMouses(nElip, ColorIndiceI, sf2, xgridData[1] , ygridData[1] );
-  displayColorMouses(nElip, ColorMedioI, sf3, xgridData[2] , ygridData[2] );
-  displayColorMouses(nElip, ColorAnularI, sf4, xgridData[3] , ygridData[3] );
-  displayColorMouses(nElip, ColorMenorI, sf5, xgridData[4] , ygridData[4] );
-  displayColorMouses(nElip, ColorManoI, sh1, xgridData[10] , ygridData[10] );
-  displayColorMouses(nElip, ColorBrazoI, sw1, xgridData[11] , ygridData[11] );
+  displayColorMouses(nElip, ColorPulgarI, sf1, xgridData[0], ygridData[0] );
+  displayColorMouses(nElip, ColorIndiceI, sf2, xgridData[1], ygridData[1] );
+  displayColorMouses(nElip, ColorMedioI, sf3, xgridData[2], ygridData[2] );
+  displayColorMouses(nElip, ColorAnularI, sf4, xgridData[3], ygridData[3] );
+  displayColorMouses(nElip, ColorMenorI, sf5, xgridData[4], ygridData[4] );
+  displayColorMouses(nElip, ColorManoI, sh1, xgridData[10], ygridData[10] );
+  displayColorMouses(nElip, ColorBrazoI, sw1, xgridData[11], ygridData[11] );
 
-  displayColorMouses(nElip, ColorPulgarII, sf6, xgridData[5] , ygridData[5] );
-  displayColorMouses(nElip, ColorIndiceII, sf7, xgridData[6] , ygridData[6] );
-  displayColorMouses(nElip, ColorMedioII, sf8, xgridData[7] , ygridData[7] );
-  displayColorMouses(nElip, ColorAnularII, sf9, xgridData[8] , ygridData[8] );
-  displayColorMouses(nElip, ColorMenorII, sf10, xgridData[9] , ygridData[9] );
-  displayColorMouses(nElip, ColorManoII, sh2, xgridData[12] , ygridData[12] );
-  displayColorMouses(nElip, ColorBrazoII, sw2, xgridData[13] , ygridData[13] );
-
+  displayColorMouses(nElip, ColorPulgarII, sf6, xgridData[5], ygridData[5] );
+  displayColorMouses(nElip, ColorIndiceII, sf7, xgridData[6], ygridData[6] );
+  displayColorMouses(nElip, ColorMedioII, sf8, xgridData[7], ygridData[7] );
+  displayColorMouses(nElip, ColorAnularII, sf9, xgridData[8], ygridData[8] );
+  displayColorMouses(nElip, ColorMenorII, sf10, xgridData[9], ygridData[9] );
+  displayColorMouses(nElip, ColorManoII, sh2, xgridData[12], ygridData[12] );
+  displayColorMouses(nElip, ColorBrazoII, sw2, xgridData[13], ygridData[13] );
 }
 /////////////////////////////////////////
 function displayColorMouses( nElip, trackColor, dedoTxt, posW, posH)
