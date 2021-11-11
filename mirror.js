@@ -100,7 +100,6 @@ function preload() {
   //valuesTxt = loadJSON("/procESP.json");
   //txtGui = loadJSON("Z:/webMirror/iuESP.json");
   lStored = getItem('lStored');
-  //lStored = localStorage.getItem('lStored');
   bubbleImageBola = createImg("./down.png", "");
   bubbleImageBola.hide();
 }
@@ -108,22 +107,20 @@ function preload() {
 function setup() {
   createMetaTag();
   createCanvas(window.innerWidth, window.innerHeight);
-  if (pixelDensity()==1 && !valLandscape) {
-    //let fs = fullscreen();
-    //fullscreen(!fs);
+  if (pixelDensity()==1 || !valLandscape)
+  {
     //createCanvas(screen.availWidth, screen.availHeight);
     //createCanvas(windowWidth, windowHeight, WEBGL);
     createCanvas(window.innerWidth, window.innerHeight);
     pVideoJava = createCapture(VIDEO);
-
-    wVideo=screen.availWidth*60/100;
+    wVideo=screen.availWidth*65/100;
     hVideo=wVideo*screen.availHeight/screen.availWidth;
-
     pVideoJava.size(wVideo, hVideo);
     pVideoJava.hide();
   } else
   {
-    if (window.DeviceOrientationEvent) {
+    if (window.DeviceOrientationEvent) 
+    {
       window.addEventListener('deviceorientation', onOrientationChange);
     }   
     setupCamera();
@@ -203,28 +200,9 @@ function draw()
 {
   //lights();
   background(255);
-
-  if (!valLandscape)
-  {
-    if (window.innerWidth!=windowInnerWidth || window.innerHeight!=windowInnerHeight) 
-    {
-      windowInnerWidth = window.innerWidth; 
-      windowInnerHeight = window.innerHeight; 
-      wsIni=(window.innerWidth-pVideoJava.width)/2;
-      hsIni=(window.innerHeight-pVideoJava.height)/2;
-    }
-  }
-
   videoImage = CapturaVideo(videoImage);
   if (lVideo) {
     image(videoImage, (wsIni), (hsIni), (wVideo), (hVideo));
-    //angleMode(DEGREES);
-    //rectMode(CENTER);
-    //push();
-    //translate(width/2-50, height/2-100);
-    //rotate(beta);
-    //rect(0, 0, 100, 200);
-    //pop();
   }
   switch(procNum) {
   case 0:
@@ -334,42 +312,22 @@ function EjecutaNiveles()
 ////////////////////////////////////
 function initImages()
 {
-  //wsIni=(window.innerWidth-pVideoJava.width)/2;
-  //hsIni=(window.innerHeight-pVideoJava.height)/2;
-
-  //if (pixelDensity()==1 && !valLandscape) 
-  {
-    wsIni=(width-pVideoJava.width)/2;
-    hsIni=(height-pVideoJava.height)/2;
-
-    wVideo=pVideoJava.width;
-    hVideo=pVideoJava.height;
-  } 
-  /*else
-  {
-    wsIni=0;
-    hsIni=0;
-
-    hVideo=pVideoJava.width;
-    wVideo=pVideoJava.height;
-  }*/
-
+  wsIni=(width-pVideoJava.width)/2;
+  hsIni=(height-pVideoJava.height)/2;
+  wVideo=pVideoJava.width;
+  hVideo=pVideoJava.height;
   videoFrame = createImage(pVideoJava.width, pVideoJava.height);
   videoImage = createImage(pVideoJava.width, pVideoJava.height);
   prevFrame = createImage(pVideoJava.width, pVideoJava.height);
   display = createImage(pVideoJava.width, pVideoJava.height);
 
   nElip=int((wVideo/10));
-  //nElip=int((hVideo/10));
   longlarg=nElip;
-
   lInit=true;
-
   for (let i = 0; i < nFrames; i++) 
   {
     buffer[i] = null;
   }
-
   initRectDown();
 }
 /////////////////////////////////////////
@@ -380,8 +338,6 @@ function initRectUp()
 
   for (let x=0; x<10; x++) {
     for (let y=0; y<1; y++) {
-      //xgridData[x][y]=1;
-      //ygridData[x][y]=1;
       xgridData[x]=1;
       ygridData[x]=1;
     }
@@ -435,8 +391,6 @@ function initRectDown()
 
   for (let x=0; x<10; x++) {
     for (let y=0; y<1; y++) {
-      //xgridData[x][y]=1;
-      //ygridData[x][y]=1;
       xgridData[x]=1;
       ygridData[x]=1;
     }
@@ -892,3 +846,9 @@ function deviceTurned()
     valLandscape = false;
   }
 }
+/////////////////////////////////////////////////////
+function windowResized() {
+  resizeCanvas(windowWidth, windowHeight);
+  initImages();
+}
+/////////////////////////////////////////////////////
