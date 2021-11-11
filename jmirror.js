@@ -1,3 +1,6 @@
+let inputKey = 0;
+let x = 100;
+let y = 100;
 
 let valLandscape = false;
 let alpha = 0; // Orientation around Z axis
@@ -107,9 +110,7 @@ function preload() {
 function setup() {
   createMetaTag();
   createCanvas(window.innerWidth, window.innerHeight);
-  //if (pixelDensity()==1 || 
-  
-  if (valLandscape)
+  if (pixelDensity()==1) // || (!valLandscape)
   {
     //createCanvas(screen.availWidth, screen.availHeight);
     //createCanvas(windowWidth, windowHeight, WEBGL);
@@ -213,6 +214,7 @@ function draw()
     {
       procName="Color";
       drawColor();
+      drawTeclado();
     } 
     break;
   case 1:
@@ -580,9 +582,6 @@ function barManual(n)
       sColor = "Color-On";
     }
     break;
-  case 99:
-
-    break;
   }
 }
 /////////////////////////////////////////
@@ -795,8 +794,10 @@ function incrementoMasMenos(textoString1, textoString2)
 //////////////////////////////
 function touchStarted() {
   facingUser = !facingUser;
-  setupCamera();
-  //initImages();
+  //setupCamera();
+  initImages();
+  inputKey = prompt("What's your touch key?");
+  barManual(inputKey);
 }
 
 function setupCamera() {
@@ -855,3 +856,47 @@ function windowResized() {
   initImages();
 }
 /////////////////////////////////////////////////////
+function drawTeclado()
+{
+  // fill color
+  fill(x, y, x - y);
+
+  if (keyIsDown(LEFT_ARROW)) {
+    x -= 5;
+  }
+
+  if (keyIsDown(RIGHT_ARROW)) {
+    x += 5;
+  }
+
+  if (keyIsDown(UP_ARROW)) {
+    y -= 5;
+  }
+
+  if (keyIsDown(DOWN_ARROW)) {
+    y += 5;
+  }
+
+  //clear();
+  ellipse(x, y, 50, 50);
+}
+////////////////////////////////////
+var text;
+function promptTexto(texto)
+{
+  var favDrink = prompt("What's your favorite cocktail drink?");
+  switch(favDrink) {
+  case "Martini":
+    text = "Excellent choice! Martini is good for your soul.";
+    break;
+  case "Daiquiri":
+    text = "Daiquiri is my favorite too!";
+    break;
+  case "Cosmopolitan":
+    text = "Really? Are you sure the Cosmopolitan is your favorite?";
+    break;
+  default:
+    text = "I have never heard of that one..";
+    break;
+  }
+}
