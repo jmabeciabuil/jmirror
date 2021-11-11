@@ -118,6 +118,7 @@ function keyPressed()
     drawTeclado(inputKey);
   } else if (keyCode == BACKSPACE )
   {
+    
   } else if ( keyCode == DELETE) 
   {
 

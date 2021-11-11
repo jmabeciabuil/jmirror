@@ -903,7 +903,7 @@ function drawTeclado(keyTecla)
     if (procNum<0) {
       procNum=0;
     }
-  } else if (key == 'F' || key == 'B' || key == 'f' || key == 'b' )
+  } else if (keyTecla == 'C' || keyTecla == 'c' )
   {
     facingUser = !facingUser;
     setupCamera();
