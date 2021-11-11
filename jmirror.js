@@ -797,7 +797,7 @@ function touchStarted() {
   //setupCamera();
   initImages();
   inputKey = prompt("What's your touch key?");
-  barManual(inputKey);
+  barManual(int(inputKey));
 }
 
 function setupCamera() {
