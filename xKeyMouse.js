@@ -82,14 +82,14 @@ function keyPressed()
   } else if (key == '9')
   {
     barManual(9);
-  } else if (keyCode==RIGHT_ARROW ||  key == '>' )
+  } else if (keyCode==RIGHT_ARROW )
   {
     procNum++;
     lInit=true;
     if (procNum>numNivelFinal) {
       procNum=numNivelFinal;
     }
-  } else if (keyCode==LEFT_ARROW ||  key == '<' )
+  } else if (keyCode==LEFT_ARROW )
   {
     procNum--;
     lInit=true;

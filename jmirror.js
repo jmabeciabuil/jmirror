@@ -799,7 +799,7 @@ function touchStarted() {
   //setupCamera();
   initImages();
   inputKey = prompt("What's your touch key?");
-  barManual(int(inputKey));
+  drawTeclado(inputKey);
 }
 
 function setupCamera() {
@@ -858,29 +858,54 @@ function windowResized() {
   initImages();
 }
 /////////////////////////////////////////////////////
-function drawTeclado()
+function drawTeclado(keyTecla)
 {
-  // fill color
-  fill(x, y, x - y);
-
-  if (keyIsDown(LEFT_ARROW)) {
-    x -= 5;
+  //barManual(int(keyTecla));
+  if (keyTecla == '0')
+  {
+    barManual(0);
+  } else if (keyTecla == '1')
+  {
+    barManual(1);
+  } else if (keyTecla == '2')
+  {
+    barManual(2);
+  } else if (keyTecla == '3')
+  {
+    barManual(3);
+  } else if (keyTecla == '4')
+  {
+    barManual(4);
+  } else if (keyTecla == '5')
+  {
+    barManual(5);
+  } else if (keyTecla == '6')
+  {
+    barManual(6);
+  } else if (keyTecla == '7')
+  {
+    barManual(7);
+  } else if (keyTecla == '8')
+  {
+    barManual(8);
+  } else if (keyTecla == '9')
+  {
+    barManual(9);
+  } else if (keyTecla == '>' )
+  {
+    procNum++;
+    lInit=true;
+    if (procNum>numNivelFinal) {
+      procNum=numNivelFinal;
+    }
+  } else if (keyTecla == '<' )
+  {
+    procNum--;
+    lInit=true;
+    if (procNum<0) {
+      procNum=0;
+    }
   }
-
-  if (keyIsDown(RIGHT_ARROW)) {
-    x += 5;
-  }
-
-  if (keyIsDown(UP_ARROW)) {
-    y -= 5;
-  }
-
-  if (keyIsDown(DOWN_ARROW)) {
-    y += 5;
-  }
-
-  //clear();
-  ellipse(x, y, 50, 50);
 }
 ////////////////////////////////////
 var text;
