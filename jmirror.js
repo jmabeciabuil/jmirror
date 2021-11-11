@@ -908,7 +908,7 @@ function drawTeclado(keyTecla)
   {
     facingUser = !facingUser;
     setupCamera();
-    //initImages();
+    initImages();
   }
 }
 ////////////////////////////////////
