@@ -82,21 +82,21 @@ function keyPressed()
   } else if (key == '9')
   {
     barManual(9);
-  } else if (keyCode==RIGHT_ARROW)
+  } else if (keyCode==RIGHT_ARROW ||  key == 92 )
   {
     procNum++;
     lInit=true;
     if (procNum>numNivelFinal) {
       procNum=numNivelFinal;
     }
-  } else if (keyCode==LEFT_ARROW)
+  } else if (keyCode==LEFT_ARROW ||  key == 91 )
   {
     procNum--;
     lInit=true;
     if (procNum<0) {
       procNum=0;
     }
-  } else if (keyCode==UP_ARROW)
+  } else if (keyCode==UP_ARROW )
   {
     masMenosTolerancia=1;
   } else if (keyCode==DOWN_ARROW)
