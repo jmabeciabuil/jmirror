@@ -796,10 +796,10 @@ function incrementoMasMenos(textoString1, textoString2)
 //////////////////////////////
 function touchStarted() {
   facingUser = !facingUser;
-  //setupCamera();
+  if (valLandscape) {setupCamera();}
   initImages();
-  //inputKey = prompt("Enter a key: ");
-  //drawTeclado(inputKey);
+  inputKey = prompt("Enter a key: ");
+  drawTeclado(inputKey);
 }
 
 function setupCamera() {
